@@ -1,0 +1,9 @@
+{
+	"name": "DataFactoryPracticas",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8e3004d0-cf02-4dd5-85a1-47c24abc10ff",
+		"tenantId": "4dac51f2-9e75-4de9-9866-7775bed719e3"
+	}
+}
