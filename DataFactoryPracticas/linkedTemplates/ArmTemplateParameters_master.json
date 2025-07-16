@@ -5,11 +5,14 @@
 		"factoryName": {
 			"value": "DataFactoryPracticas"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
-		"AzureDataLakeStorage1_accountKey": {
-			"value": ""
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://labs4899.dfs.core.windows.net/"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "genericdb89.database.windows.net"
@@ -19,9 +22,6 @@
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "angel"
-		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
-			"value": "https://labs4899.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"value": ""
