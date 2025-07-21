@@ -1,0 +1,54 @@
+{
+	"name": "ADLSGen2Store2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DriverCSV",
+						"type": "DatasetReference"
+					},
+					"name": "DriversCSV"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DriverCSV3",
+						"type": "DatasetReference"
+					},
+					"name": "Receptor"
+				}
+			],
+			"transformations": [
+				{
+					"name": "AggregateSalary",
+					"description": "Aggregating data by 'Gender' producing columns 'Salary'"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          DriverId as string,",
+				"          FirstName as string,",
+				"          MiddleName as string,",
+				"          LastName as string,",
+				"          City as string,",
+				"          Gender as string,",
+				"          Salary as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> DriversCSV",
+				"DriversCSV aggregate(Salary = avg(tointeger(Salary))) ~> AggregateSalary",
+				"AggregateSalary sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> Receptor"
+			]
+		}
+	}
+}
